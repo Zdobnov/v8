@@ -1,0 +1,143 @@
+:root {
+  --lightblue: #ECF0F3;
+  --gray: #546072;
+  --blue: #76A1CC;
+  --darkblue: #1A3356;
+  --yellow: #F6D365;
+  --yellow-light: #FFE38B;
+  --yellow-dark: #D3AE37;
+  --white: #FFFFFF;
+
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--lightblue);
+  font-family: "Montserrat";
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1760px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.header .wrapper {
+  height: 107px;
+  padding-top: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  height: 75px;
+  width: 150px;
+  background: url('./images/logo.png') 0 0 no-repeat;
+  display: block;
+  transition: transform .4s ease;
+}
+
+.header__logo:hover {
+  transform: scale(1.02);
+}
+
+.menu {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  margin-left: 68px;
+}
+
+.menu__item {
+  padding: 0 12px;
+  position: relative;
+}
+
+.menu__item--opened {
+  background: var(--white);
+  border-radius: 8px 8px 0 0;
+}
+
+.menu__link {
+  text-decoration: none;
+  color: var(--gray);
+  transition: color .4s ease;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 64px;
+  width: 100%;
+  background: var(--white);
+  border-radius: 0 0 8px 8px;
+  padding: 0 12px 20px;
+}
+
+.submenu__item:not(:first-child) {
+  margin-top: 16px;
+}
+
+.submenu__link {
+  text-decoration: none;
+  color: var(--gray);
+  transition: color .4s ease;
+}
+
+.menu__link:hover,
+.submenu__link:hover {
+  color: var(--blue);
+}
+
+.menu__link--active,
+.menu__link:active,
+.submenu__link:active {
+  color: var(--darkblue);
+}
+
+.header__button {
+  height: 64px;
+  border-radius: 8px;
+  background: var(--yellow);
+  font-family: var(--font-montserrat);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  color: var(--darkblue);
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  margin-left: auto;
+  cursor: pointer;
+  transition: background-color .4s ease;
+}
+
+.header__button:hover {
+  background-color: var(--yellow-light);
+}
+
+.header__button:active {
+  background-color: var(--yellow-dark);
+}
+
+.header__button span {
+  height: 19px;
+  width: 19px;
+  background: url('./images/icon-document.png') 0 0 no-repeat;
+  display: block;
+  margin-left: 20px;
+}
