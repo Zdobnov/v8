@@ -7,6 +7,7 @@
   --yellow-light: #FFE38B;
   --yellow-dark: #D3AE37;
   --white: #FFFFFF;
+  --lightgray: #919CAC;
 
   --font-montserrat: 'Montserrat', sans-serif;
   --font-fugaz: 'Fugaz One', cursive;
@@ -85,7 +86,7 @@ body {
   align-items: center;
 }
 
-.header__logo {
+.logo {
   height: 75px;
   width: 150px;
   background: url('./images/logo.png') 0 0 no-repeat;
@@ -93,7 +94,7 @@ body {
   transition: transform .4s ease;
 }
 
-.header__logo:hover {
+.logo:hover {
   transform: scale(1.02);
 }
 
@@ -231,6 +232,10 @@ body {
   background-image: url('./images/icon-de.png');
 }
 
+.vehicle__location--en {
+  background-image: url('./images/icon-en.png');
+}
+
 .vehicle__title {
   color: var(--darkblue);
   font-size: 56px;
@@ -310,4 +315,94 @@ body {
 .map {
   height: 600px;
   background: var(--white);
+}
+
+/* FOOTER */
+.footer {
+  padding-bottom: 30px;
+}
+
+.footer__details {
+  display: flex;
+  align-items: center;
+  padding: 42px 0 40px;
+}
+
+.footer__links {
+  width: 280px;
+  padding-right: 40px;
+}
+
+.footer__links li {
+  background: url('images/icon-arrow.svg') 0 center no-repeat;
+  padding: 8px 0 8px 24px;
+}
+
+.footer__links a {
+  color: var(--gray);
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.footer__links a:hover,
+.footer__links a:active {
+  text-decoration: underline;
+}
+
+.address,
+.contacts {
+  background: var(--white);
+  width: 410px;
+  height: 166px;
+  border-radius: 16px;
+  box-shadow: 0px 10px 24px rgba(58, 123, 213, 0.08);
+  padding: 30px 0 0 27px;
+  display: flex;
+  flex-direction: column;
+}
+
+.address > *,
+.contacts > * {
+  padding: 11px 0 11px 36px;
+  color: var(--gray);
+  font-size: 16px;
+  font-family: var(--font-montserrat);
+  font-style: normal;
+}
+
+.contacts > a {
+  text-decoration: none;
+}
+
+.contacts > a:hover {
+  text-decoration: underline;
+}
+
+.address {
+  margin-left: auto;
+}
+
+.address__location {
+  background: url('images/icon-location.svg') 0 center no-repeat;
+}
+
+.address__time {
+  background: url('images/icon-clock.svg') 0 center no-repeat;
+}
+
+.contacts__phone {
+  background: url('images/icon-call.svg') 0 center no-repeat;
+}
+
+.contacts__email {
+  background: url('images/icon-email.svg') 0 center no-repeat;
+}
+
+.contacts {
+  margin: 0 50px 0 40px;
+}
+
+.copyright {
+  color: var(--lightgray);
+  font-size: 16px;
 }
