@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>V8 Rent</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- FONTS: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <div class="wrapper">
+        <a href="/" class="logo"></a>
+        <menu class="menu">
+          <li class="menu__item">
+            <a href="#" class="menu__link">Fuhrpark Berlin</a>
+          <li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">Fuhrpark Los Angeles</a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">Fotos</a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">Bewertungen</a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">Kontakt</a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">Ablauf</a>
+          </li>
+        </menu>
+        <button type="button" name="button" class="header__button">
+          Gutschein Bestellen
+          <span></span>
+        </button>
+      </div>
+    </header>
+    <main class="main wrapper">
+      <section class="contacts-page">
+        <h1>Contacts</h1>
+        <div class="contacts-page__flex">
+          <div class="contacts-page__aside">
+            <address class="address">
+              <span class="address__location">
+                Zimmerstrasse 100 10117 Berlin
+              </span>
+              <span class="address__time">
+                Mo-Fr: 10.00 – 15.00<br/>
+                Sa-So: nach Vereinbarung
+              </span>
+            </address>
+            <address class="contacts">
+              <a class="contacts__phone" href="tel:+4917630630045">
+                0176 306 300 45
+              </a>
+              <a class="contacts__phone" href="tel:+493045095171">
+                030 450 95 171
+              </a>
+              <a href="maito:info@v8-garage.de" class="contacts__email">
+                info@v8-garage.de
+              </a>
+            </address>
+            <a href="#" class="contacts-page__policy">Datenschutzerklärung</a>
+          </div>
+          <div class="contacts-page__main">
+            <h2>
+              Füllen Sie das Formular aus, um einen Gutschein bestellen
+            </h2>
+            <div class="contacts-page__form">
+              <input type="text" value="" class="input" placeholder="Gutscheinempfänger"/>
+              <input type="text" value="" class="input input--error" placeholder="Betrag"/>
+              <input type="text" value="" class="input input--success" placeholder="Rechnungsadresse mit Bestellernamen"/>
+              <input type="text" value="" class="input" placeholder="E-Mail-Adresse"/>
+              <textarea placeholder="Ihre Nachricht" class="textarea"></textarea>
+              <button type="button" name="button" class="header__button">
+                Gutschein Bestellen
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="map">
+      I AM MAP
+    </div>
+    <footer class="footer">
+      <div class="wrapper">
+        <div class="footer__details">
+          <a href="/" class="logo"></a>
+          <address class="address">
+            <span class="address__location">
+              Zimmerstrasse 100 10117 Berlin
+            </span>
+            <span class="address__time">
+              Mo-Fr: 10.00 – 15.00<br/>
+              Sa-So: nach Vereinbarung
+            </span>
+          </address>
+          <address class="contacts">
+            <a class="contacts__phone" href="tel:+4917630630045">
+              0176 306 300 45
+            </a>
+            <a class="contacts__phone" href="tel:+493045095171">
+              030 450 95 171
+            </a>
+            <a href="maito:info@v8-garage.de" class="contacts__email">
+              info@v8-garage.de
+            </a>
+          </address>
+          <ul class="footer__links">
+            <li>
+              <a href="#">Datenschutz</a>
+            </li>
+            <li>
+              <a href="#">Impressum</a>
+            </li>
+            <li>
+              <a href="#">AGB</a>
+            </li>
+          </ul>
+          <ul class="footer__links">
+            <li>
+              <a href="#">Gutschein bestellen</a>
+            </li>
+            <li>
+              <a href="#">Mietanfrage</a>
+            </li>
+            <li>
+              <a href="#">Ablauf</a>
+            </li>
+          </ul>
+        </div>
+        <div class="copyright">
+          2021 © V8 Garage Autovermietung Berlin | Los Angeles
+        </div>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>

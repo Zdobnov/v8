@@ -79,6 +79,41 @@ body {
   border-color: var(--darkblue);
 }
 
+.input {
+  height: 64px;
+  background: var(--lightblue);
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--darkblue);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  outline: none;
+  font-family: var(--font-montserrat);
+}
+
+.input--error {
+  border-color: #BA486B;
+}
+
+.input--success {
+  border-color: #25891A;
+}
+
+.textarea {
+  background: var(--lightblue);
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--darkblue);
+  resize: none;
+  font-family: var(--font-montserrat);
+  padding: 16px;
+  outline: none;
+  padding: 24px 16px 16px;
+}
+
 /* HEADER */
 .header .wrapper {
   height: 107px;
@@ -566,4 +601,76 @@ body {
   color: var(--darkblue);
   font-family: var(--font-fugaz);
   text-align: center;
+}
+
+/* CONTACTS PAGE */
+.contacts-page {
+  padding: 0 215px;
+}
+
+.contacts-page h1 {
+  font-size: 36px;
+  color: var(--darkblue);
+  font-family: var(--font-fugaz);
+  margin-bottom: 40px;
+}
+
+.contacts-page__flex {
+  display: flex;
+}
+
+.contacts-page__aside {
+  flex: 0 0 410px;
+}
+
+.contacts-page__aside .address,
+.contacts-page__aside .contacts {
+  margin: 0 0 40px;
+}
+
+.contacts-page__policy {
+  color: var(--darkblue);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.contacts-page__policy:hover {
+  text-decoration: none;
+}
+
+.contacts-page__main {
+  background: var(--white);
+  box-shadow: 0px 10px 24px rgba(58, 123, 213, 0.08);
+  border-radius: 16px;
+  flex: 1 1 auto;
+  margin-left: 80px;
+  padding: 60px;
+}
+
+.contacts-page__main h2 {
+  font-size: 32px;
+  color: var(--darkblue);
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.contacts-page__form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px 40px;
+}
+
+.contacts-page__form label,
+.contacts-page__form input {
+  width: 100%;
+}
+
+.contacts-page__form textarea {
+  grid-row: 1 / 4;
+  grid-column: 2 / 2;
+}
+
+.contacts-page__form .header__button {
+  width: 100%;
 }
