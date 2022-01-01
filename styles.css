@@ -114,6 +114,48 @@ body {
   padding: 24px 16px 16px;
 }
 
+.custom-checkbox {
+  width: 100%;
+  display: block;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-montserrat);
+  color: var(--white);
+  position: relative;
+  padding-left: 36px;
+  cursor: pointer;
+}
+
+.custom-checkbox__icon {
+  content: '';
+  position: absolute;
+  left: 4px;
+  border: 2px solid var(--white);
+  border-radius: 4px;
+  width: 18px;
+  height: 18px;
+}
+
+.custom-checkbox__icon:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  left: 2px;
+  top: 2px;
+  background: transparent;
+  border-radius: 2px;
+  position: absolute;
+}
+
+.custom-checkbox input {
+  display: none;
+}
+
+.custom-checkbox input:checked ~ .custom-checkbox__icon:after {
+  background: var(--white);
+}
+
 /* HEADER */
 .header .wrapper {
   height: 107px;
@@ -145,11 +187,15 @@ body {
 .menu__item {
   padding: 0 12px;
   position: relative;
+  border-radius: 8px 8px 0 0;
 }
 
-.menu__item--opened {
+.menu__item--has-submenu:hover {
   background: var(--white);
-  border-radius: 8px 8px 0 0;
+}
+
+.menu__item--has-submenu:hover .submenu {
+  display: flex;
 }
 
 .menu__link {
@@ -162,7 +208,7 @@ body {
 }
 
 .submenu {
-  display: flex;
+  display: none;
   flex-direction: column;
   position: absolute;
   left: 0;
@@ -673,4 +719,110 @@ body {
 
 .contacts-page__form .header__button {
   width: 100%;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(26, 51, 86, 0.75);
+  backdrop-filter: blur(12px);
+  padding: 60px 0 0;
+}
+
+.modal__close {
+  background: url('images/close.svg') 0 0 no-repeat;
+  width: 48px;
+  height: 48px;
+  border: none;
+  cursor: pointer;
+  margin: 0 0 60px calc(50% - 24px);
+  opacity: .85;
+  transition: opacity .4s ease;
+  position: relative;
+}
+
+.modal__close:hover {
+  opacity: 1;
+}
+
+.modal__close:after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  height: calc(100% + 4px);
+  width: calc(100% + 4px);
+  border-radius: 50%;
+  border-width: 2px;
+  border-color: var(--white);
+  border-style: solid dashed solid dashed;
+  opacity: 0;
+}
+
+.modal__close:hover:after {
+  opacity: 1;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.modal__title {
+  color: var(--white);
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal__wrapper--certificate,
+.modal__wrapper--booking {
+  width: 100%;
+  max-width: 960px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.modal__wrapper--certificate {
+  max-width: 960px;
+}
+
+.modal__wrapper--booking {
+  max-width: 1080px;
+}
+
+.booking {
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking__aside {
+  flex: 0 0 320px;
+}
+
+.booking .contacts-page__form {
+  flex: 0 0 720px;
+  margin: 0 0 0 40px;
+}
+
+.insurance {
+  padding-top: 15px;
+}
+
+.insurance h5 {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.insurance p {
+  margin-top: 8px;
+  color: #ECF0F3;
+  font-size: 14px;
 }
