@@ -43,13 +43,19 @@ body {
 .button {
   font-size: 18px;
   font-weight: 700;
-  height: 64px;
+  height: 54px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all .4s ease;
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    height: 64px;
+  }
 }
 
 .button--primary {
@@ -281,14 +287,29 @@ body {
 
 /* MAIN page */
 .main {
-  padding-top: 100px;
-  padding-bottom: 80px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
 }
 
 /* VEHICLE (Main page car) */
 .vehicle__row {
   display: flex;
-  gap: 0 40px;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .vehicle__row {
+    display: flex;
+    flex-direction: row;
+    gap: 0 40px;
+  }
 }
 
 .vehicle:not(:first-child) {
@@ -330,10 +351,16 @@ body {
 
 .vehicle__title {
   color: var(--darkblue);
-  font-size: 36px;
+  font-size: 22px;
   font-family: var(--font-fugaz);
   text-transform: uppercase;
   margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .vehicle__title {
+    font-size: 36px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -369,7 +396,13 @@ body {
 }
 
 .vehicle__ctas button {
-  width: 340px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .vehicle__ctas button {
+    width: 340px;
+  }
 }
 
 .vehicle__image {
@@ -379,27 +412,48 @@ body {
   align-items: center;
 }
 
+@media screen and (max-width: 767px) {
+  .vehicle__image {
+    order: -1;
+    margin-bottom: 16px;
+  }
+}
+
 .vehicle__image img {
-  position: absolute;
-  left: 0;
+  max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .vehicle__image img {
+    position: absolute;
+    left: 0;
+    max-width: none;
+  }
 }
 
 .vehicle__features {
   flex: 0 0 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
+  grid-gap: 10px;
   margin-top: 44px;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 576px) {
   .vehicle__features {
-    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .vehicle__features {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media screen and (min-width: 1200px) {
   .vehicle__features {
+    grid-template-columns: repeat(5, 1fr);
     margin-top: 90px;
   }
 }
@@ -411,7 +465,13 @@ body {
 
 .vehicle__feature span {
   color: var(--gray);
-  font-size: 20px;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .vehicle__feature span {
+    font-size: 20px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -422,7 +482,7 @@ body {
 
 .vehicle__feature strong {
   font-family: var(--font-fugaz);
-  font-size: 36px;
+  font-size: 22px;
   color: var(--darkblue);
   text-transform: uppercase;
 }
@@ -445,8 +505,10 @@ body {
   }
 }
 
-.vehicle--reverted .vehicle__details {
-  padding: 0 0 0 40px;
+@media screen and (min-width: 768px) {
+  .vehicle--reverted .vehicle__details {
+    padding: 0 0 0 40px;
+  }
 }
 
 .vehicle--reverted .vehicle__image {
@@ -471,34 +533,70 @@ body {
 
 .footer__details {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   padding: 42px 0 40px;
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (min-width: 1400px) {
   .footer__details {
-    flex-wrap: wrap;
+    align-items: center;
+    flex-wrap: nowrap;
   }
+}
 
+.footer .logo {
+  margin: 0 auto 20px;
+  flex: 0 0 100%;
+  background-position: center;
+}
+
+@media screen and (min-width: 992px) {
   .footer .logo {
-    margin-right: 20%;
+    margin: 0 20% 0 0;
+    flex-basis: auto;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .footer .logo {
+    margin-right: 0;
   }
 }
 
 .footer__links {
-  width: 240px;
+  flex: 0 0 100%;
   padding-right: 20px;
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (min-width: 576px) {
+  .footer__links {
+    flex-basis: calc(50% - 10px);
+  }
+
   .footer__links:first-of-type {
-    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .footer__links {
+    flex-basis: 240px;
+  }
+
+  .footer__links:first-of-type {
+    margin: 0 0 0 auto;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .footer__links:first-of-type {
+    margin: 0;
   }
 }
 
 @media screen and (min-width: 1700px) {
   .footer__links {
-    width: 280px;
+    flex-basis: 280px;
     padding-right: 40px;
   }
 }
@@ -533,28 +631,70 @@ body {
 
 .footer .address,
 .footer .contacts {
-  width: 330px;
+  flex: 0 0 100%;
 }
 
-@media screen and (max-width: 1399px) {
+.footer .address {
+  margin-bottom: 20px;
+}
+
+.footer .contacts {
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer .address,
+  .footer .contacts {
+    flex: 0 0 calc(50% - 10px);
+    margin-bottom: 32px;
+  }
+
+  .footer .contacts {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .footer .address,
+  .footer .contacts {
+    margin-top: 32px;
+    margin-bottom: 0;
+  }
+
   .footer .address {
     order: 1;
-    flex: 0 0 calc(50% - 10px);
-    margin: 40px 10px 0 0;
   }
 
   .footer .contacts {
     order: 2;
-    flex: 0 0 calc(50% - 10px);
-    margin: 40px 0 0 10px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .footer .address,
+  .footer .contacts {
+    flex-basis: 330px;
+    padding-left: 27px;
+    order: 0;
+  }
+
+  .footer .address {
+    margin: 0 0 0 auto;
+  }
+
+  .footer .contacts {
+    margin: 0 30px 0 20px;
   }
 }
 
 @media screen and (min-width: 1600px) {
   .footer .address,
   .footer .contacts {
-    width: 410px;
-    padding-left: 27px;
+    flex-basis: 410px;
+  }
+
+  .footer .contacts {
+    margin: 0 50px 0 40px;
   }
 }
 
@@ -575,10 +715,6 @@ body {
   text-decoration: underline;
 }
 
-.address {
-  margin-left: auto;
-}
-
 .address__location {
   background: url('images/icon-location.svg') 0 center no-repeat;
 }
@@ -593,16 +729,6 @@ body {
 
 .contacts__email {
   background: url('images/icon-email.svg') 0 center no-repeat;
-}
-
-.contacts {
-  margin: 0 30px 0 20px;
-}
-
-@media screen and (min-width: 1600px) {
-  .footer .contacts {
-    margin: 0 50px 0 40px;
-  }
 }
 
 .copyright {
@@ -639,12 +765,6 @@ body {
   position: relative;
   flex: 1 1 auto;
   margin-right: 40px;
-}
-
-.vehicle-details__image img {
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
 .vehicle-details__aside {
