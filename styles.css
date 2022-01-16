@@ -31,7 +31,6 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
-  overflow: hidden;
 }
 
 @media screen and (min-width: 1200px) {
@@ -197,7 +196,7 @@ body {
 }
 
 .menu__item {
-  padding: 0 12px;
+  padding: 0 16px;
   position: relative;
   border-radius: 8px 8px 0 0;
 }
@@ -239,6 +238,7 @@ body {
   text-decoration: none;
   color: var(--gray);
   transition: color .4s ease;
+  line-height: 24px;
 }
 
 .menu__link:hover,
@@ -289,6 +289,7 @@ body {
 .main {
   padding-top: 32px;
   padding-bottom: 32px;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
