@@ -187,12 +187,78 @@ body {
   transform: scale(1.02);
 }
 
+.menu-wrapper {
+  display: none;
+}
+
+@media screen and (min-width: 1400px) {
+  .menu-wrapper {
+    display: flex !important;
+    margin-left: 68px;
+  }
+}
+
+.menu-wrapper__opened {}
+
+@media screen and (max-width: 1399px) {
+  .menu-wrapper__opened {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: calc(100% - 320px);
+    bottom: 0;
+    right: 0;
+    background: var(--lightblue);
+    box-shadow: -4px 0px 16px rgba(58, 123, 213, 0.16);
+    border-radius: 8px 0px 0px 8px;
+    padding: 41px 0 24px;
+    overflow: auto;
+  }
+}
+
+.menu-wrapper__close {
+  display: flex;
+  height: 56px;
+  width: 56px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 1400px) {
+  .menu-wrapper__close {
+    display: none;
+  }
+}
+
 .menu {
   font-family: var(--font-montserrat);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
-  margin-left: 68px;
+}
+
+@media screen and (max-width: 767px) {
+  .menu {
+    border-bottom: 1px solid var(--lightgray);
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (max-width: 1399px) {
+  .menu {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .menu {
+    font-size: 18px;
+  }
 }
 
 .menu__item {
@@ -216,6 +282,12 @@ body {
   height: 64px;
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 1399px) {
+  .menu__link {
+    justify-content: flex-end;
+  }
 }
 
 .submenu {
@@ -273,6 +345,26 @@ body {
   padding: 0 32px;
 }
 
+@media screen and (max-width: 767px) {
+  .cta--mobile {
+    display: flex;
+  }
+
+  .cta--desktop {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .cta--mobile {
+    display: none;
+  }
+
+  .cta--desktop {
+    display: flex;
+  }
+}
+
 .cta:hover {
   background-color: var(--yellow-light);
 }
@@ -283,6 +375,37 @@ body {
 
 .cta img {
   margin-left: 20px;
+}
+
+.menu-button {
+  height: 56px;
+  width: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: 1400px) {
+  .menu-button {
+    display: none;
+  }
+}
+
+.menu-button .line {
+  transition: all .4s ease;
+}
+
+.menu-button:hover .line--1 {
+  transform: translateX(6px);
+}
+
+.menu-button:hover .line--3 {
+  transform: translateX(-6px);
 }
 
 /* MAIN page */
@@ -1184,6 +1307,6 @@ body {
 
 .insurance p {
   margin-top: 8px;
-  color: #ECF0F3;
+  color: var(--lightblue);
   font-size: 14px;
 }
