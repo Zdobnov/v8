@@ -15,69 +15,85 @@
     <header class="header">
       <div class="wrapper">
         <a href="/" class="logo"></a>
-        <menu class="menu">
-          <li class="menu__item menu__item--has-submenu">
-            <a href="#" class="menu__link">Fuhrpark Berlin</a>
-            <ul class="submenu">
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Ford Mustang</a>
-              </li>
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Ford Mustang</a>
-              </li>
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Dodge Charger SRT Hellcat</a>
-              </li>
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Ford Mustang</a>
-              </li>
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Ford Mustang</a>
-              </li>
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Ford Mustang</a>
-              </li>
-            </ul>
-          <li>
-          <li class="menu__item menu__item--has-submenu">
-            <a href="#" class="menu__link">Fuhrpark Los Angeles</a>
-            <ul class="submenu">
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Ford Mustang</a>
-              </li>
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Ford Mustang</a>
-              </li>
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Dodge Charger SRT Hellcat</a>
-              </li>
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Ford Mustang</a>
-              </li>
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Ford Mustang</a>
-              </li>
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">Ford Mustang</a>
-              </li>
-            </ul>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">Fotos</a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">Bewertungen</a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">Kontakt</a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">Ablauf</a>
-          </li>
-        </menu>
-        <button type="button" name="button" class="header__button">
+        <div class="menu-wrapper">
+          <button type="button" name="button" class="menu-wrapper__close">
+            <img src="images/close.svg" alt="close"/>
+          </button>
+          <menu class="menu">
+            <li class="menu__item menu__item--has-submenu">
+              <a href="#" class="menu__link">Fuhrpark Berlin</a>
+              <ul class="submenu">
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Ford Mustang</a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Ford Mustang</a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Dodge Charger SRT Hellcat</a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Ford Mustang</a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Ford Mustang</a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Ford Mustang</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu__item menu__item--has-submenu">
+              <a href="#" class="menu__link">Fuhrpark Los Angeles</a>
+              <ul class="submenu">
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Ford Mustang</a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Ford Mustang</a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Dodge Charger SRT Hellcat</a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Ford Mustang</a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Ford Mustang</a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">Ford Mustang</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Fotos</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Bewertungen</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Kontakt</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Ablauf</a>
+            </li>
+          </menu>
+          <button type="button" name="button" class="cta cta--header cta--mobile">
+            Gutschein Bestellen
+            <img src="images/icon-document.svg" alt="gutschein bestellen"/>
+          </button>
+        </div>
+        <button type="button" name="button" class="cta cta--header cta--desktop">
           Gutschein Bestellen
-          <span></span>
+          <img src="images/icon-document.svg" alt="gutschein bestellen"/>
+        </button>
+        <button type="button" name="menu-button" class="menu-button">
+          <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line y1="2" x2="20" y2="2" stroke="#1A3356" stroke-width="3" class="line line--1"/>
+            <line x1="6" y1="18" x2="26" y2="18" stroke="#1A3356" stroke-width="3" class="line line--3"/>
+            <line y1="10" x2="26" y2="10" stroke="#1A3356" stroke-width="3" class="line line--2"/>
+          </svg>
         </button>
       </div>
     </header>
