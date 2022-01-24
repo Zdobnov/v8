@@ -39,6 +39,11 @@ body {
   }
 }
 
+.stroke,
+.fill {
+  transition: all .4s ease;
+}
+
 .button {
   font-size: 18px;
   font-weight: 700;
@@ -73,6 +78,10 @@ body {
   border-color: #0D1D3D;
 }
 
+.button--primary .stroke {
+  stroke: var(--white);
+}
+
 .button--secondary {
   background: none;
   border: 2px solid var(--gray);
@@ -88,6 +97,29 @@ body {
   color: var(--white);
   background: var(--darkblue);
   border-color: var(--darkblue);
+}
+
+.button--secondary .stroke {
+  stroke: var(--gray);
+}
+
+.button--secondary .fill {
+  fill: var(--gray);
+}
+
+.button--secondary:hover .stroke,
+.button--secondary:active .stroke {
+  stroke: var(--white);
+}
+
+.button--secondary:hover .fill,
+.button--secondary:active .fill {
+  fill: var(--white);
+}
+
+.button--primary > *,
+.button--secondary > * {
+  margin-left: 20px;
 }
 
 .input {
@@ -565,12 +597,12 @@ body {
   display: grid;
   grid-gap: 10px;
   margin-top: 44px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @media screen and (min-width: 576px) {
   .vehicle__features {
     grid-gap: 15px;
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -594,7 +626,7 @@ body {
 
 .vehicle__feature span {
   color: var(--gray);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 @media screen and (min-width: 768px) {
@@ -611,7 +643,7 @@ body {
 
 .vehicle__feature strong {
   font-family: var(--font-fugaz);
-  font-size: 22px;
+  font-size: 18px;
   color: var(--darkblue);
   text-transform: uppercase;
 }
@@ -651,8 +683,14 @@ body {
 
 /* MAP */
 .map {
-  height: 600px;
+  height: 284px;
   background: var(--white);
+}
+
+@media screen and (min-width: 992px) {
+  .map {
+    height: 600px;
+  }
 }
 
 /* FOOTER */
@@ -663,7 +701,7 @@ body {
 .footer__details {
   display: flex;
   flex-wrap: wrap;
-  padding: 42px 0 40px;
+  padding: 32px 0;
 }
 
 @media screen and (min-width: 1400px) {
@@ -674,7 +712,7 @@ body {
 }
 
 .footer .logo {
-  margin: 0 auto 20px;
+  margin: 0 auto 32px;
   flex: 0 0 100%;
   background-position: center;
 }
@@ -769,6 +807,28 @@ body {
 
 .footer .contacts {
   margin-bottom: 32px;
+}
+
+@media screen and (max-width: 767px) {
+  .footer .address,
+  .footer .contacts {
+    box-shadow: none;
+    border-radius: 0;
+    flex-basis: calc(100% + 40px);
+    margin-left: -20px;
+    height: auto;
+  }
+
+  .footer .address {
+    margin-bottom: 0;
+    padding-top: 32px;
+    padding-bottom: 0;
+  }
+
+  .footer .contacts {
+    padding-top: 0;
+    padding-bottom: 32px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -913,6 +973,7 @@ body {
 
 .vehicle-details {
   margin-bottom: 32px;
+  position: relative;
 }
 
 @media screen and (min-width: 992px) {
@@ -930,7 +991,7 @@ body {
   .vehicle-details__image {
     display: block;
     position: absolute;
-    width: calc(40% - 40px);
+    width: calc(40% - 130px);
     height: 100%;
   }
 }
@@ -939,7 +1000,7 @@ body {
   .vehicle-details__image {
     position: relative;
     flex: 1 1 auto;
-    margin-right: 40px;
+    margin-right: 130px;
     height: auto;
     width: auto;
   }
@@ -948,8 +1009,14 @@ body {
 .vehicle-details__image img {
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 33.3%;
   transform: translateY(-50%);
+}
+
+@media screen and (min-width: 1400px) {
+  .vehicle-details__image img {
+    top: 50%;
+  }
 }
 
 .vehicle-details__aside {}
