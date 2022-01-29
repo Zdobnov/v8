@@ -29,6 +29,10 @@ body {
   font-weight: 400;
 }
 
+.body--block {
+  overflow: hidden;
+}
+
 .wrapper {
   width: 100%;
   margin: 0 auto;
@@ -1534,47 +1538,32 @@ body {
   background: rgba(26, 51, 86, 0.75);
   backdrop-filter: blur(12px);
   padding: 60px 0 0;
+  display: none;
+}
+
+.modal--opened {
+  display: block;
 }
 
 .modal__close {
-  background: url('images/close.svg') 0 0 no-repeat;
   width: 48px;
   height: 48px;
   border: none;
   cursor: pointer;
   margin: 0 0 60px calc(50% - 24px);
-  opacity: .85;
   transition: opacity .4s ease;
   position: relative;
+  border-radius: 50%;
+  background: var(--white);
+  transition: background-color .4s ease;
 }
 
 .modal__close:hover {
-  opacity: 1;
+  background: var(--darkblue);
 }
 
-.modal__close:after {
-  content: '';
-  position: absolute;
-  left: -4px;
-  top: -4px;
-  height: calc(100% + 4px);
-  width: calc(100% + 4px);
-  border-radius: 50%;
-  border-width: 2px;
-  border-color: var(--white);
-  border-style: solid dashed solid dashed;
-  opacity: 0;
-}
-
-.modal__close:hover:after {
-  opacity: 1;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotateZ(360deg);
-  }
+.modal__close:hover .stroke {
+  stroke: var(--white);
 }
 
 .modal__title {
