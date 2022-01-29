@@ -19,6 +19,7 @@
   padding: 0;
   list-style: none;
   box-sizing: border-box;
+  outline: none;
 }
 
 body {
@@ -299,13 +300,22 @@ body {
 }
 
 .menu__item {
-  padding: 0 16px;
   position: relative;
-  border-radius: 8px 8px 0 0;
 }
 
-.menu__item--has-submenu:hover {
-  background: var(--white);
+@media screen and (min-width: 1400px) {
+  .menu__item {
+    border-radius: 8px 8px 0 0;
+    padding: 0 16px;
+  }
+}
+
+.menu__item--has-submenu {}
+
+@media screen and (min-width: 1400px) {
+  .menu__item--has-submenu:hover {
+    background: var(--white);
+  }
 }
 
 .menu__item--has-submenu:hover .submenu {
@@ -324,23 +334,40 @@ body {
 @media screen and (max-width: 1399px) {
   .menu__link {
     justify-content: flex-end;
+    padding: 0 20px;
   }
 }
 
 .submenu {
   display: none;
   flex-direction: column;
-  position: absolute;
-  left: 0;
-  top: 64px;
-  width: 100%;
-  background: var(--white);
-  border-radius: 0 0 8px 8px;
-  padding: 0 16px 20px;
 }
 
-.submenu__item:not(:first-child) {
-  margin-top: 16px;
+@media screen and (max-width: 1399px) {
+  .submenu {
+    background: var(--lightblue2);
+    border-bottom: 1px solid var(--lightgray);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .submenu {
+    position: absolute;
+    left: 0;
+    top: 64px;
+    width: 100%;
+    background: var(--white);
+    border-radius: 0 0 8px 8px;
+    padding: 0 16px 20px;
+  }
+}
+
+.submenu__item {}
+
+@media screen and (min-width: 1400px) {
+  .submenu__item:not(:first-child) {
+    margin-top: 16px;
+  }
 }
 
 .submenu__link {
@@ -350,15 +377,36 @@ body {
   line-height: 24px;
 }
 
-.menu__link:hover,
-.submenu__link:hover {
-  color: var(--blue);
+@media screen and (max-width: 1399px) {
+  .submenu__link {
+    height: 64px;
+    padding: 0 40px 0 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .menu__link:hover,
+  .menu__link:active,
+  .submenu__link:hover,
+  .submenu__link:active,
+  .submenu__link--active {
+    background: var(--darkblue);
+    color: var(--white);
+  }
 }
 
-.menu__link--active,
-.menu__link:active,
-.submenu__link:active {
-  color: var(--darkblue);
+@media screen and (min-width: 1400px) {
+  .menu__link:hover,
+  .submenu__link:hover {
+    color: var(--blue);
+  }
+
+  .menu__link--active,
+  .menu__link:active,
+  .submenu__link:active {
+    color: var(--darkblue);
+  }
 }
 
 .cta {
