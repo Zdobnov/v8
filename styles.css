@@ -4,6 +4,7 @@
   --gray: #546072;
   --blue: #76A1CC;
   --darkblue: #1A3356;
+  --darkblue2: #416589;
   --yellow: #F6D365;
   --yellow-light: #FFE38B;
   --yellow-dark: #D3AE37;
@@ -1628,4 +1629,57 @@ body {
   margin-top: 8px;
   color: var(--lightblue);
   font-size: 14px;
+}
+
+.text {
+  padding: 30px 20px;
+  background: var(--white);
+}
+
+@media screen and (min-width: 992px) {
+  .text {
+    padding: 40px;
+  }
+}
+
+.text h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--darkblue);
+  margin: 0 0 30px;
+}
+
+@media screen and (min-width: 992px) {
+  .text h2 {
+    font-size: 36px;
+  }
+}
+
+.text p {
+  margin-bottom: 30px;
+  font-size: 16px;
+  color: var(--darkblue);
+}
+
+.text a {
+  color: var(--darkblue2);
+}
+
+.text *:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .text {
+    margin-left: -20px;
+    width: calc(100% + 40px);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .text {
+    box-shadow: 0px 10px 24px rgba(58, 123, 213, 0.08);
+    border-radius: 16px;
+    padding: 40px;
+  }
 }
