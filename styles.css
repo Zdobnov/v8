@@ -508,6 +508,20 @@ body {
 }
 
 /* VEHICLE (Main page car) */
+.vehicle {
+  margin-bottom: 56px;
+}
+
+@media screen and (min-width: 768px) {
+  .vehicle {
+    margin-bottom: 108px;
+  }
+}
+
+.vehicle:last-child {
+  margin-bottom: 0;
+}
+
 .vehicle__row {
   display: flex;
   flex-direction: column;
@@ -518,16 +532,6 @@ body {
     display: flex;
     flex-direction: row;
     gap: 0 40px;
-  }
-}
-
-.vehicle:not(:first-child) {
-  margin-top: 56px;
-}
-
-@media screen and (min-width: 1200px) {
-  .vehicle:not(:first-child) {
-    margin-top: 108px;
   }
 }
 
@@ -973,8 +977,12 @@ body {
 /* CAR PAGE */
 .vehicle-gallery {
   display: grid;
-  margin: 56px 0 24px;
+  margin-bottom: 24px;
   grid-gap: 20px;
+}
+
+.vehicle-gallery:last-child {
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 576px) {
@@ -987,12 +995,6 @@ body {
   .vehicle-gallery {
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 80px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .vehicle-gallery {
-    margin-top: 108px;
   }
 }
 
@@ -1345,7 +1347,7 @@ body {
   }
 }
 
-.contacts-page h1 {
+.title {
   font-size: 22px;
   color: var(--darkblue);
   font-family: var(--font-fugaz);
@@ -1353,7 +1355,7 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .contacts-page h1 {
+  .title {
     font-size: 36px;
     margin-bottom: 35px;
   }
