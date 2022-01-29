@@ -560,11 +560,11 @@ body {
 }
 
 .vehicle__location--de {
-  background-image: url('./images/icon-de.png');
+  background-image: url('../../images/icon-de.png');
 }
 
 .vehicle__location--en {
-  background-image: url('./images/icon-en.png');
+  background-image: url('../../images/icon-en.png');
 }
 
 .vehicle__title {
@@ -826,7 +826,7 @@ body {
 }
 
 .footer__links li {
-  background: url('images/icon-arrow.svg') 0 center no-repeat;
+  background: url('../../images/icon-arrow.svg') 0 center no-repeat;
   padding: 8px 0 8px 24px;
 }
 
@@ -959,19 +959,19 @@ body {
 }
 
 .address__location {
-  background: url('images/icon-location.svg') 0 center no-repeat;
+  background: url('../../images/icon-location.svg') 0 center no-repeat;
 }
 
 .address__time {
-  background: url('images/icon-clock.svg') 0 center no-repeat;
+  background: url('../../images/icon-clock.svg') 0 center no-repeat;
 }
 
 .contacts__phone {
-  background: url('images/icon-call.svg') 0 center no-repeat;
+  background: url('../../images/icon-call.svg') 0 center no-repeat;
 }
 
 .contacts__email {
-  background: url('images/icon-email.svg') 0 center no-repeat;
+  background: url('../../images/icon-email.svg') 0 center no-repeat;
 }
 
 .copyright {
@@ -1128,7 +1128,7 @@ body {
 .vehicle-details__aside li {
   font-size: 16px;
   color: var(--gray);
-  background: url('images/icon-arrow.svg') 0 center no-repeat;
+  background: url('../../images/icon-arrow.svg') 0 center no-repeat;
   padding: 0 0 0 24px;
 }
 
