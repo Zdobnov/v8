@@ -211,9 +211,9 @@ body {
 .logo {
   height: 75px;
   width: 150px;
-  background: url('./images/logo.png') 0 0 no-repeat;
   display: block;
   transition: transform .4s ease;
+  text-align: center;
 }
 
 .logo:hover {
