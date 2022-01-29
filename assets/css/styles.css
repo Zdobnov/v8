@@ -1537,8 +1537,9 @@ body {
   bottom: 0;
   background: rgba(26, 51, 86, 0.75);
   backdrop-filter: blur(12px);
-  padding: 60px 0 0;
+  padding: 60px 0;
   display: none;
+  overflow-y: auto;
 }
 
 .modal--opened {
@@ -1568,10 +1569,16 @@ body {
 
 .modal__title {
   color: var(--white);
-  font-size: 48px;
+  font-size: 24px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal__title {
+    font-size: 48px;
+  }
 }
 
 .modal__wrapper--certificate,
@@ -1595,13 +1602,23 @@ body {
   justify-content: space-between;
 }
 
+@media screen and (max-width: 1199px) {
+  .booking {
+    flex-direction: column;
+  }
+}
+
 .booking__aside {
   flex: 0 0 320px;
 }
 
-.booking .contacts-page__form {
-  flex: 0 0 720px;
-  margin: 0 0 0 40px;
+.booking .contacts-page__form {}
+
+@media screen and (min-width: 1200px) {
+  .booking .contacts-page__form {
+    flex: 0 0 720px;
+    margin: 0 0 0 40px;
+  }
 }
 
 .insurance {
