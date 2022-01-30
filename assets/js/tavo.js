@@ -413,6 +413,9 @@
 
         if (this.config.range_select) {
             if ((!this.state.date_start && !this.state.date_end) || (this.state.date_start && this.state.date_end)) {
+                this.state.selected = date;
+                this.elements.wrapper.dispatchEvent(new Event('calendar-select'));
+
                 this.state.date_start = date;
                 this.state.date_end = null;
             }  else {
@@ -421,7 +424,7 @@
                 }
 
                 this.state.lock = true;
-                this.elements.wrapper.dispatchEvent(new Event('calendar-range'))
+                this.elements.wrapper.dispatchEvent(new Event('calendar-range'));
             }
         } else {
             if (this.config.multi_select) {

@@ -16,11 +16,11 @@
     <header class="header">
       <div class="wrapper">
         <a href="/" class="logo">
-          <img src="images/logo.png" alt="logo"/>
+          <img src="assets/images/logo.png" alt="logo"/>
         </a>
         <div class="menu-wrapper">
           <button type="button" name="button" class="menu-wrapper__close">
-            <img src="images/close.svg" alt="close"/>
+            <img src="assets/images/close.svg" alt="close"/>
           </button>
           <menu class="menu">
             <li class="menu__item menu__item--has-submenu">
@@ -84,12 +84,12 @@
           </menu>
           <button type="button" name="button" class="cta cta--header cta--mobile">
             Gutschein Bestellen
-            <img src="images/icon-document.svg" alt="gutschein bestellen"/>
+            <img src="assets/images/icon-document.svg" alt="gutschein bestellen"/>
           </button>
         </div>
         <button type="button" name="button" class="cta cta--header cta--desktop">
           Gutschein Bestellen
-          <img src="images/icon-document.svg" alt="gutschein bestellen"/>
+          <img src="assets/images/icon-document.svg" alt="gutschein bestellen"/>
         </button>
         <button type="button" name="menu-button" class="menu-button">
           <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -116,7 +116,7 @@
                 Von innen nach außen verschiebt diese Hellcat den fahrdynamischen Grenzbereich weiter nach oben ohne Komfort außen vor– Zähmen Sie heute noch das Monster auf den Straßen Berlins.
               </p>
               <div class="vehicle__ctas">
-                <button type="button" name="button" class="button button--primary">
+                <a href="#" type="button" name="button" class="button button--primary">
                   Mieten
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="4" y="5.07178" width="16" height="16" rx="2.8" stroke="#1A3356" stroke-width="1.5" class="stroke"/>
@@ -126,7 +126,7 @@
                     <line x1="9.75" y1="13.25" x2="14.25" y2="13.25" stroke="#1A3356" stroke-width="1.5" stroke-linecap="round" class="stroke"/>
                     <line x1="8.75" y1="10.25" x2="15.25" y2="10.25" stroke="#1A3356" stroke-width="1.5" stroke-linecap="round" class="stroke"/>
                   </svg>
-                </button>
+                </a>
                 <button type="button" name="button" class="button button--secondary">
                   Gutschein Bestellen
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -139,33 +139,33 @@
               </div>
             </div>
             <div class="vehicle__image">
-              <img src="images/content_charger.png" alt="dodge charger srt hellcat"/>
+              <img src="assets/images/content_charger.png" alt="dodge charger srt hellcat"/>
             </div>
           </div>
         </section>
         <section class="vehicle-gallery">
           <div class="vehicle-gallery__item">
-            <img src="images/content_image.jpg" alt="charger"/>
+            <img src="assets/images/content_image.jpg" alt="charger"/>
           </div>
           <div class="vehicle-gallery__item">
-            <img src="images/content_image.jpg" alt="charger"/>
+            <img src="assets/images/content_image.jpg" alt="charger"/>
           </div>
           <div class="vehicle-gallery__item">
-            <img src="images/content_image.jpg" alt="charger"/>
+            <img src="assets/images/content_image.jpg" alt="charger"/>
           </div>
           <div class="vehicle-gallery__item">
-            <img src="images/content_image.jpg" alt="charger"/>
+            <img src="assets/images/content_image.jpg" alt="charger"/>
           </div>
           <div class="vehicle-gallery__item">
-            <img src="images/content_image.jpg" alt="charger"/>
+            <img src="assets/images/content_image.jpg" alt="charger"/>
           </div>
           <div class="vehicle-gallery__item">
-            <img src="images/content_image.jpg" alt="charger"/>
+            <img src="assets/images/content_image.jpg" alt="charger"/>
           </div>
         </section>
         <section class="vehicle-details">
           <div class="vehicle-details__image">
-            <img src="images/car_face.png" alt="dodcge charger"/>
+            <img src="assets/images/car_face.png" alt="dodcge charger"/>
           </div>
           <div class="vehicle-details__aside">
             <div class="vehicle-details__tech">
@@ -181,9 +181,9 @@
             <div class="vehicle-details__price">
               <h3>Preise</h3>
               <ul>
-                <li>(Mo-Do) 300€ (24h)</li>
-                <li>(Fr-So) 350€ (24h)</li>
-                <li>Jeder weitere Tag 150€</li>
+                <li>(Mo-Do) <span id="priceDays">300</span>€ (24h)</li>
+                <li>(Fr-So) <span id="priceWeekends">350</span>€ (24h)</li>
+                <li>Jeder weitere Tag <span id="priceOther">150</span>€</li>
                 <li>100 km frei, 0,80€ jeder weitere Kilometer</li>
                 <li>deutscher Führerschein mind. 5 Jahre</li>
                 <li>300€ Kaution mit der Kreditkarte oder in bar</li>
@@ -200,7 +200,7 @@
         </section>
         <section class="contact-us">
           <div class="contact-us__main">
-            <img src="images/lady.png" alt="contact us" class="contact-us__background">
+            <img src="assets/images/lady.png" alt="contact us" class="contact-us__background">
             <h5>Möchten Sie die Kraft eines V8-Motors erleben?</h5>
             <p>Oder vielleicht jemand, der Ihnen nahe steht?</p>
             <button type="button" name="button" class="button button--primary">
@@ -272,7 +272,7 @@
       <div class="wrapper">
         <div class="footer__details">
           <a href="/" class="logo">
-            <img src="images/logo.png" alt="logo"/>
+            <img src="assets/images/logo.png" alt="logo"/>
           </a>
           <address class="address">
             <span class="address__location">
@@ -333,14 +333,23 @@
         <h3 class="modal__title">
           Füllen Sie das Formular für eine Mietanfrage aus
         </h3>
-        <div class="booking">
+        <form class="booking" action="index.html" method="post" id="booking">
           <div class="booking__aside">
             <div id="my-calendar"></div>
+            <select class="select" id="booking-time">
+              <option selected value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+            </select>
           </div>
           <div class="contacts-page__form">
-            <input type="text" value="" class="input" placeholder="Gutscheinempfänger"/>
-            <input type="text" value="" class="input input--error" placeholder="Betrag"/>
-            <input type="text" value="" class="input input--success" placeholder="Rechnungsadresse mit Bestellernamen"/>
+            <select class="select" id="booking-insurance">
+              <option selected value="0">Haftpflicht</option>
+              <option value="40">Haftpflicht 40</option>
+              <option value="70">Haftpflicht 70</option>
+            </select>
+            <input type="text" value="" class="input input--error" placeholder="Name"/>
+            <input type="text" value="" class="input input--success" placeholder="Telefonnummer"/>
             <input type="text" value="" class="input" placeholder="E-Mail-Adresse"/>
             <textarea placeholder="Ihre Nachricht" class="textarea"></textarea>
             <button type="button" name="button" class="cta">
@@ -349,19 +358,20 @@
             </button>
             <div>
               <label class="custom-checkbox">
-                <input type="checkbox"/>
+                <input type="checkbox" id="booking-additional-driver"/>
                 <div class="custom-checkbox__icon"></div>
                 Zweitfahrer
               </label>
+              <span id="booking-additional-driver-price" class="hidden">30</span>
               <input type="text" value="" class="input" placeholder="Name"/>
             </div>
             <div class="insurance">
-              <h5>Mietpreis: 2000 €</h5>
-              <p>Anzahl der Tage: 10</p>
-              <p>1000 km frei, 0,80€ jeder weitere Kilometer</p>
+              <h5>Mietpreis: <span id="booking-summary-price">0</span>€</h5>
+              <p>Anzahl der Tage: <span id="booking-summary-days">0</span></p>
+              <p>100 km frei, 0,80€ jeder weitere Kilometer</p>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </section>
     <section class="modal" id="modal--certificate">

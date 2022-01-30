@@ -1,10 +1,11 @@
 .tavo-calendar {
 	text-align: center;
 	font-size: 13px;
+	margin-bottom: 20px;
 }
 
 .tavo-calendar__info {
-	display: none;
+	display: none !important;
 	text-align: left;
 	margin-bottom: 8px;
 	font-size: 12px;
@@ -24,7 +25,7 @@
 .tavo-calendar__header {
 	display: flex;
 	justify-content: center;
-	background-color: #ffffff;
+	background-color: #ECF0F3;
 	color: white;
 	align-items: center;
 	height: 56px;
@@ -70,7 +71,7 @@
 
 .tavo-calendar__week-names {
 	display: flex;
-	background-color: #ffffff;
+	background-color: #ECF0F3;
 	font-size: 12px;
   align-items: center;
   text-transform: uppercase;
@@ -83,7 +84,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	padding-top: 5px;
-  background: #ffffff;
+  background: #ECF0F3;
   border-radius: 0 0 16px 16px;
   padding-bottom: 16px;
 }

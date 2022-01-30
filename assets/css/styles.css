@@ -45,6 +45,10 @@ body {
   }
 }
 
+.hidden {
+  display: none;
+}
+
 .stroke,
 .fill {
   transition: all .4s ease;
@@ -60,6 +64,7 @@ body {
   justify-content: center;
   cursor: pointer;
   transition: all .4s ease;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -148,6 +153,23 @@ body {
 
 .input--success {
   border-color: #25891A;
+}
+
+.select {
+  height: 64px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--darkblue);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  outline: none;
+  font-family: var(--font-montserrat);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url('../images/icon-chevron-down.svg') right 20px center no-repeat var(--lightblue);
+  width: 100%;
 }
 
 .textarea {
@@ -560,11 +582,11 @@ body {
 }
 
 .vehicle__location--de {
-  background-image: url('../../images/icon-de.png');
+  background-image: url('../images/icon-de.png');
 }
 
 .vehicle__location--en {
-  background-image: url('../../images/icon-en.png');
+  background-image: url('../images/icon-en.png');
 }
 
 .vehicle__title {
@@ -613,12 +635,12 @@ body {
   }
 }
 
-.vehicle__ctas button {
+.vehicle__ctas .button {
   width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-  .vehicle__ctas button {
+  .vehicle__ctas .button {
     width: 340px;
   }
 }
@@ -724,16 +746,16 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .vehicle--reverted .vehicle__details {
+  .vehicle:nth-child(2n) .vehicle__details {
     padding: 0 0 0 40px;
   }
 }
 
-.vehicle--reverted .vehicle__image {
+.vehicle:nth-child(2n) .vehicle__image {
   order: -1;
 }
 
-.vehicle--reverted .vehicle__image img {
+.vehicle:nth-child(2n) .vehicle__image img {
   left: auto;
   right: 0;
 }
@@ -826,7 +848,7 @@ body {
 }
 
 .footer__links li {
-  background: url('../../images/icon-arrow.svg') 0 center no-repeat;
+  background: url('../images/icon-arrow.svg') 0 center no-repeat;
   padding: 8px 0 8px 24px;
 }
 
@@ -959,19 +981,19 @@ body {
 }
 
 .address__location {
-  background: url('../../images/icon-location.svg') 0 center no-repeat;
+  background: url('../images/icon-location.svg') 0 center no-repeat;
 }
 
 .address__time {
-  background: url('../../images/icon-clock.svg') 0 center no-repeat;
+  background: url('../images/icon-clock.svg') 0 center no-repeat;
 }
 
 .contacts__phone {
-  background: url('../../images/icon-call.svg') 0 center no-repeat;
+  background: url('../images/icon-call.svg') 0 center no-repeat;
 }
 
 .contacts__email {
-  background: url('../../images/icon-email.svg') 0 center no-repeat;
+  background: url('../images/icon-email.svg') 0 center no-repeat;
 }
 
 .copyright {
@@ -1128,7 +1150,7 @@ body {
 .vehicle-details__aside li {
   font-size: 16px;
   color: var(--gray);
-  background: url('../../images/icon-arrow.svg') 0 center no-repeat;
+  background: url('../images/icon-arrow.svg') 0 center no-repeat;
   padding: 0 0 0 24px;
 }
 
@@ -1251,11 +1273,11 @@ body {
   font-size: 18px;
 }
 
-.contact-us__main button {
+.contact-us__main .button {
   width: 340px;
 }
 
-.contact-us__main button:nth-of-type(2) {
+.contact-us__main .button:nth-of-type(2) {
   margin-top: 20px;
 }
 
@@ -1503,7 +1525,7 @@ body {
 }
 
 @media screen and (max-width: 767px) {
-  .contacts-page__form *:not(:first-child) {
+  .contacts-page__form > *:not(:first-child) {
     margin-top: 20px;
   }
 }
@@ -1612,6 +1634,10 @@ body {
   flex: 0 0 320px;
 }
 
+.booking__aside .select {
+  margin-bottom: 20px;
+}
+
 .booking .contacts-page__form {}
 
 @media screen and (min-width: 1200px) {
@@ -1640,6 +1666,10 @@ body {
 .text {
   padding: 30px 20px;
   background: var(--white);
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (min-width: 992px) {

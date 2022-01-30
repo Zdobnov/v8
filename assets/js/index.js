@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const moment = window.moment || user_options.moment;
+
   const menuButton = document.querySelector('.menu-button');
   const menuWrapper = document.querySelector('.menu-wrapper');
   const menuWrapperClose = document.querySelector('.menu-wrapper__close');
@@ -10,6 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModalButtons = document.querySelectorAll('.modal__close');
   const primaryButtons = document.querySelectorAll('#car-page .button--primary');
   const secondaryButtons = document.querySelectorAll('.button--secondary');
+
+  // calculator nodes
+  const priceDays = document.getElementById('priceDays');
+  const priceWeekends = document.getElementById('priceWeekends');
+  const priceOther = document.getElementById('priceOther');
+
+  const bookingInsurance = document.getElementById('booking-insurance');
+  const bookingAdditionalDriver = document.getElementById('booking-additional-driver');
+  const bookingAdditionalDriverPrice = document.getElementById('booking-additional-driver-price');
+  const bookingSummaryPrice = document.getElementById('booking-summary-price');
+  const bookingSummaryDays= document.getElementById('booking-summary-days');
 
   // MENU HANDLING
   function toggleMenuWrapper() {
@@ -26,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (type === 'certificate') {
       modalCertificate.classList.add('modal--opened');
     } else {
+      render(state);
+
       modalBooking.classList.add('modal--opened');
     }
   }
@@ -33,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeModal() {
     body.classList.remove('body--block');
     document.querySelector('.modal--opened').classList.remove('modal--opened');
+
+    setState(initialState);
   }
 
   for (let i = 0; i < primaryButtons.length; i++) {
@@ -49,8 +66,87 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // TAVO CALENDAR
   // https://www.cssscript.com/event-calendar-date-picker/
+  const initialState = {
+    days: 0,
+    start: null,
+    end: null,
+    price: 0,
+  };
+  let state = initialState;
+
+  const nodeCalendar = document.getElementById('my-calendar');
   const myCalendar = new TavoCalendar('#my-calendar', {
     range_select: true,
     locale: 'de',
+  });
+
+  function calculatePrice({ days, start, end } = state) {
+    const dayOfWeek = new Date(start).getDay();
+    const isWeekend = (dayOfWeek === 5) || (dayOfWeek === 6) || (dayOfWeek  === 0);
+
+    let price = 0;
+    if (isWeekend) {
+      price += parseInt(priceWeekends.innerHTML);
+    } else {
+      price += parseInt(priceDays.innerHTML);
+    }
+
+    price += (days - 1) * parseInt(priceOther.innerHTML);
+    price += parseInt(bookingInsurance.value);
+
+    if (bookingAdditionalDriver.checked) {
+      price += parseInt(bookingAdditionalDriverPrice.innerHTML);
+    }
+
+    return price;
+  };
+
+  function render({ days, price }) {
+    bookingSummaryPrice.innerHTML = price;
+    bookingSummaryDays.innerHTML = days;
+  };
+
+  function setState(object) {
+    state = {
+      ...state,
+      ...object,
+    };
+
+    render(state);
+  };
+
+  nodeCalendar.addEventListener('calendar-select', () => {
+    const start = myCalendar.getSelected();
+
+    setState({
+      days: 1,
+      start,
+      price: calculatePrice({ days: 1, start }),
+    });
+  });
+
+  nodeCalendar.addEventListener('calendar-range', () => {
+    const { start, end } = myCalendar.getRange();
+    const days = moment(end).diff(moment(start), 'days') + 1;
+
+    setState({
+      days,
+      start,
+      price: calculatePrice({ days, start, end }),
+    });
+  });
+
+  // second driver event handler
+  bookingAdditionalDriver.addEventListener('change', () => {
+    setState({
+      price: calculatePrice(),
+    });
+  });
+
+  // insurance event handler
+  bookingInsurance.addEventListener('change', () => {
+    setState({
+      price: calculatePrice(),
+    });
   });
 });
