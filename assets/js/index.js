@@ -46,4 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
   for (let i = 0; i < closeModalButtons.length; i++) {
     closeModalButtons[i].addEventListener('click', closeModal);
   };
+
+  // TAVO CALENDAR
+  // https://www.cssscript.com/event-calendar-date-picker/
+  const myCalendar = new TavoCalendar('#my-calendar', {
+    range_select: true,
+    locale: 'de',
+  });
 });

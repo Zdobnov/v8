@@ -1,0 +1,176 @@
+.tavo-calendar {
+	text-align: center;
+	font-size: 13px;
+}
+
+.tavo-calendar__info {
+	display: none;
+	text-align: left;
+	margin-bottom: 8px;
+	font-size: 12px;
+}
+
+.tavo-calendar__info span {
+	font-weight: bold;
+	background-color: #f1f1f1;
+}
+
+.tavo-calendar__info:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.tavo-calendar__header {
+	display: flex;
+	justify-content: center;
+	background-color: #ffffff;
+	color: white;
+	align-items: center;
+	height: 56px;
+  border-radius: 16px 16px 0 0;
+}
+
+.tavo-calendar__month-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1A3356;
+  padding: 0 20px;
+}
+
+.tavo-calendar__nav {
+	position: relative;
+	padding: 0;
+	cursor: pointer;
+	fill: #546072;
+  height: 56px;
+  width: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tavo-calendar__nav_prev svg,
+.tavo-calendar__nav_next svg {
+	width: 24px;
+	height: 24px;
+}
+
+.tavo-calendar__code_lock {
+	opacity: 0.7;
+}
+
+.tavo-calendar__code_lock:hover {
+	opacity: 1;
+}
+
+.tavo-calendar__code_lock .tavo-calendar__days {
+	pointer-events: none;
+}
+
+.tavo-calendar__week-names {
+	display: flex;
+	background-color: #ffffff;
+	font-size: 12px;
+  align-items: center;
+  text-transform: uppercase;
+  color: #546072;
+  padding: 12px 0;
+  font-weight: 700;
+}
+
+.tavo-calendar__days {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 5px;
+  background: #ffffff;
+  border-radius: 0 0 16px 16px;
+  padding-bottom: 16px;
+}
+
+.tavo-calendar__reset {
+	float: right;
+}
+
+.tavo-calendar__reset svg {
+	height: 16px;
+	width: 16px;
+}
+
+.tavo-calendar__weekday {
+	flex: 1;
+	text-align: center;
+}
+
+.tavo-calendar__day {
+	flex: 1;
+	min-width: 14%;
+	max-width: 15%;
+	text-align: center;
+	cursor: pointer;
+  color: #546072;
+  font-weight: 700;
+}
+
+.tavo-calendar__day-inner {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	display: inline-flex;
+	font-size: 14px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  transition: all .4s ease;
+}
+
+.tavo-calendar__day-inner:hover {
+	background-color: #1A3356;
+  color: #ffffff;
+}
+
+.tavo-calendar__day_off,
+.tavo-calendar__day_exp,
+.tavo-calendar__day_different-month,
+.tavo-calendar__day_lock {
+	cursor: default;
+	color: #919CAC;
+	background-color: unset;
+}
+
+.tavo-calendar__day_off day,
+.tavo-calendar__day_off day:hover,
+.tavo-calendar__day_exp day,
+.tavo-calendar__day_exp day:hover,
+.tavo-calendar__day_different-month day,
+.tavo-calendar__day_different-month day:hover,
+.tavo-calendar__day_lock day,
+.tavo-calendar__day_lock day:hover {
+	background: unset;
+}
+
+.tavo-calendar__day_off span {
+	text-decoration: line-through;
+}
+
+.tavo-calendar__day_select span {
+	background-color: unset;
+}
+
+.tavo-calendar__day_select span {
+	background-color: lightblue;
+	border-radius: unset;
+}
+
+.tavo-calendar__day_select day:hover {
+	background-color: lightblue;
+}
+
+.tavo-calendar__day_range-select {
+	background-color: lightblue;
+}
+
+.tavo-calendar__day_select-lock {
+	pointer-events: none;
+	color: grey;
+}
