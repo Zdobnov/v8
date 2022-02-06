@@ -29,6 +29,13 @@ body {
   font-weight: 400;
 }
 
+@media screen and (max-width: 991px) {
+  body {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
 .body--block {
   overflow: hidden;
 }
