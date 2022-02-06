@@ -248,19 +248,13 @@
           </div>
         </section>
         <section class="vehicle-description">
-          <p>
-            Dodge Challenger der Herr auf den Strassen!<br/>
-            Autoverleih ist eine grossartige Möglichkeit sich selbst oder einen lieben Menschen mit Spass und Freude zu beschenken!<br/>
-            <br/>
-            Challenger ist die lebende Legende der amerikanischen Autoindustrie. Dieser Wagen ist für starke und impulsive Menschen kreiiert worden. Motor-Sound und Geschwindigkeit ist ein Vergnügen auf den Strassen einer Grosßstadt.<br/>
-            <br/>
-            V8 vermietet US-Autos, bietet ein kompetentes Service und schenkt tolle Erlebnisse, die lange nicht vergessen bleiben.<br/>
-            <br/>
-            Teste ein waschechtes US-Auto auf Berlins Strassen!<br/>
-            V8 bietet ein Autoverleih, inklusive Service, von folgenden US-Modellen: Hummer H2, Ford Mustang, Camaro SS….<br/>
-            <br/>
-            Im Angebot haben wir auch Gutscheine auf unsere Modelle. V8 für alle Lebenslagen und Freizeitgestaltungen: ob Geburtstag, Hochzeit, Party – wir freuen uns auf Sie!
-          </p>
+          <p>Dodge Challenger der Herr auf den Strassen!</p>
+          <p>Autoverleih ist eine grossartige Möglichkeit sich selbst oder einen lieben Menschen mit Spass und Freude zu beschenken!</p>
+          <p>Challenger ist die lebende Legende der amerikanischen Autoindustrie. Dieser Wagen ist für starke und impulsive Menschen kreiiert worden. Motor-Sound und Geschwindigkeit ist ein Vergnügen auf den Strassen einer Grosßstadt.</p>
+          <p>V8 vermietet US-Autos, bietet ein kompetentes Service und schenkt tolle Erlebnisse, die lange nicht vergessen bleiben.</p>
+          <p>Teste ein waschechtes US-Auto auf Berlins Strassen!</p>
+          <p>V8 bietet ein Autoverleih, inklusive Service, von folgenden US-Modellen: Hummer H2, Ford Mustang, Camaro SS….</p>
+          <p>Im Angebot haben wir auch Gutscheine auf unsere Modelle. V8 für alle Lebenslagen und Freizeitgestaltungen: ob Geburtstag, Hochzeit, Party – wir freuen uns auf Sie!</p>
           <h4>FORD MUSTANG GT, MIETEN IN BERLIN, V8-GARAGE, LEIHEN, FAHREN, GUTSCHEIN ALS GESCHENK</h4>
         </section>
       </div>
@@ -363,13 +357,19 @@
                 Zweitfahrer
               </label>
               <span id="booking-additional-driver-price" class="hidden">30</span>
-              <input type="text" value="" class="input" placeholder="Name"/>
+              <input type="text" value="" class="input hidden" placeholder="Name" name="booking-additional-driver-name" id="booking-additional-driver-name"/>
             </div>
             <div class="insurance">
               <h5>Mietpreis: <span id="booking-summary-price">0</span>€</h5>
               <p>Anzahl der Tage: <span id="booking-summary-days">0</span></p>
               <p>100 km frei, 0,80€ jeder weitere Kilometer</p>
             </div>
+          </div>
+          <div class="hidden">
+            <input type="text" name="booking-be-price" id="booking-be-price" value=""/>
+            <input type="text" name="booking-be-days" id="booking-be-days" value=""/>
+            <input type="text" name="booking-be-start" id="booking-be-start" value=""/>
+            <input type="text" name="booking-be-end" id="booking-be-end" value=""/>
           </div>
         </form>
       </div>

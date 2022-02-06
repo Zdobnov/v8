@@ -21,8 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookingInsurance = document.getElementById('booking-insurance');
   const bookingAdditionalDriver = document.getElementById('booking-additional-driver');
   const bookingAdditionalDriverPrice = document.getElementById('booking-additional-driver-price');
+  const bookingAdditionalDriverName = document.getElementById('booking-additional-driver-name');
   const bookingSummaryPrice = document.getElementById('booking-summary-price');
   const bookingSummaryDays= document.getElementById('booking-summary-days');
+
+  // nodes to pass booking for BE
+  const bookingBEPrice = document.getElementById('booking-be-price');
+  const bookingBEDays = document.getElementById('booking-be-days');
+  const bookingBEStart = document.getElementById('booking-be-start');
+  const bookingBEEnd = document.getElementById('booking-be-end');
 
   // MENU HANDLING
   function toggleMenuWrapper() {
@@ -81,17 +88,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function calculatePrice({ days, start, end } = state) {
-    const dayOfWeek = new Date(start).getDay();
-    const isWeekend = (dayOfWeek === 5) || (dayOfWeek === 6) || (dayOfWeek  === 0);
-
     let price = 0;
-    if (isWeekend) {
-      price += parseInt(priceWeekends.innerHTML);
-    } else {
-      price += parseInt(priceDays.innerHTML);
+
+    if (start) {
+      const dayOfWeek = new Date(start).getDay();
+      const isWeekend = (dayOfWeek === 5) || (dayOfWeek === 6) || (dayOfWeek  === 0);
+
+      if (isWeekend) {
+        price += parseInt(priceWeekends.innerHTML);
+      } else {
+        price += parseInt(priceDays.innerHTML);
+      }
+
+      price += (days - 1) * parseInt(priceOther.innerHTML);
     }
 
-    price += (days - 1) * parseInt(priceOther.innerHTML);
     price += parseInt(bookingInsurance.value);
 
     if (bookingAdditionalDriver.checked) {
@@ -101,9 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return price;
   };
 
-  function render({ days, price }) {
+  function render({ days, price, start, end }) {
     bookingSummaryPrice.innerHTML = price;
     bookingSummaryDays.innerHTML = days;
+
+    bookingBEPrice.value = price;
+    bookingBEDays.value = days;
+    bookingBEStart.value = start;
+    bookingBEEnd.value = end;
   };
 
   function setState(object) {
@@ -141,6 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setState({
       price: calculatePrice(),
     });
+
+    bookingAdditionalDriverName.classList.toggle('hidden');
   });
 
   // insurance event handler
