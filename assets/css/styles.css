@@ -363,6 +363,7 @@ body {
   height: 64px;
   display: flex;
   align-items: center;
+  letter-spacing: 0.04em;
 }
 
 @media screen and (max-width: 1399px) {
@@ -409,6 +410,12 @@ body {
   color: var(--gray);
   transition: color .4s ease;
   line-height: 24px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.submenu__link:last-child {
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 1399px) {
