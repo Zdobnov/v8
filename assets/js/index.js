@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const moment = window.moment || user_options.moment;
 
+  moment.locale('de');
+
   const menuButton = document.querySelector('.menu-button');
   const menuWrapper = document.querySelector('.menu-wrapper');
   const menuWrapperClose = document.querySelector('.menu-wrapper__close');
@@ -18,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const priceWeekends = document.getElementById('priceWeekends');
   const priceOther = document.getElementById('priceOther');
 
+  const bookingTimeStart = document.getElementById('booking-time-start');
+  const bookingTimeEnd = document.getElementById('booking-time-end');
   const bookingInsurance = document.getElementById('booking-insurance');
   const bookingAdditionalDriver = document.getElementById('booking-additional-driver');
   const bookingAdditionalDriverPrice = document.getElementById('booking-additional-driver-price');
@@ -46,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (type === 'certificate') {
       modalCertificate.classList.add('modal--opened');
     } else {
-      render(state);
+      // render(state);
 
       modalBooking.classList.add('modal--opened');
     }
@@ -73,11 +77,143 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // TAVO CALENDAR
   // https://www.cssscript.com/event-calendar-date-picker/
+  // const initialState = {
+  //   days: 0,
+  //   startDay: null,
+  //   endDay: null,
+  //   startTime: bookingTimeStart.value,
+  //   endTime: bookingTimeEnd.value,
+  //   startDate: null,
+  //   endDate: null,
+  //   price: 0,
+  // };
+  // let state = initialState;
+
+  // const nodeCalendar = document.getElementById('my-calendar');
+  // const myCalendar = new TavoCalendar('#my-calendar', {
+  //   range_select: true,
+  //   locale: 'de',
+  //   date: "2022-02-12",
+  //   date_start: "2022-02-15",
+  //   date_end: "2022-02-17",
+  //   range_select: true
+  // });
+  //
+  // function calculatePrice({ days, startDay, endDay } = state) {
+  //   let price = 0;
+  //
+  //   if (startDay) {
+  //     const dayOfWeek = new Date(startDay).getDay();
+  //     const isWeekend = (dayOfWeek === 5) || (dayOfWeek === 6) || (dayOfWeek  === 0);
+  //
+  //     if (isWeekend) {
+  //       price += parseInt(priceWeekends.innerHTML);
+  //     } else {
+  //       price += parseInt(priceDays.innerHTML);
+  //     }
+  //
+  //     price += (days - 1) * parseInt(priceOther.innerHTML);
+  //   }
+  //
+  //   price += parseInt(bookingInsurance.value);
+  //
+  //   if (bookingAdditionalDriver.checked) {
+  //     price += parseInt(bookingAdditionalDriverPrice.innerHTML);
+  //   }
+  //
+  //   return price;
+  // };
+  //
+  // function render({ days, price, startDay, endDay }) {
+  //   bookingSummaryPrice.innerHTML = price;
+  //   bookingSummaryDays.innerHTML = days;
+  //
+  //   bookingBEPrice.value = price;
+  //   bookingBEDays.value = days;
+  //   bookingBEStart.value = startDay;
+  //   bookingBEEnd.value = endDay;
+  // };
+  //
+  // function setState(object) {
+  //   state = {
+  //     ...state,
+  //     ...object,
+  //   };
+  //
+  //   render(state);
+  // };
+  //
+  // nodeCalendar.addEventListener('calendar-select', () => {
+  //   const startDay = myCalendar.getSelected();
+  //
+  //   setState({
+  //     days: 1,
+  //     startDay,
+  //     price: calculatePrice({ days: 1, startDay }),
+  //   });
+  // });
+  //
+  // nodeCalendar.addEventListener('calendar-range', () => {
+  //   const { start, end } = myCalendar.getRange();
+  //   const days = moment(end).diff(moment(start), 'days') + 1;
+  //
+  //   setState({
+  //     days,
+  //     startDay: start,
+  //     price: calculatePrice({
+  //       days,
+  //       startDay: start,
+  //       endDay: end,
+  //     }),
+  //   });
+  // });
+  //
+  // bookingTimeStart.addEventListener('change', function(event) {
+  //   setState({
+  //     startTime: event.target.value,
+  //   });
+  // });
+  //
+  // bookingTimeEnd.addEventListener('change', function(event) {
+  //   setState({
+  //     endTime: event.target.value,
+  //   });
+  // });
+
+  // second driver event handler
+  // bookingAdditionalDriver.addEventListener('change', () => {
+    // setState({
+    //   price: calculatePrice(),
+    // });
+    //
+    // bookingAdditionalDriverName.classList.toggle('hidden');
+  // });
+
+  // insurance event handler
+  // bookingInsurance.addEventListener('change', () => {
+    // setState({
+    //   price: calculatePrice(),
+    // });
+  // });
+
+  const START = moment(new Date).format("YYYY-MM-DD");
+  const END = moment(new Date).add(1, 'days').format("YYYY-MM-DD");
+
   const initialState = {
-    days: 0,
-    start: null,
-    end: null,
     price: 0,
+    priceDays: parseInt(priceDays.innerHTML),
+    priceWeekends: parseInt(priceWeekends.innerHTML),
+    priceNext: parseInt(priceOther.innerHTML),
+    startDay: START,
+    startTime: bookingTimeStart.value,
+    startDate: null,
+    days: 0,
+    insuranceFee: parseInt(bookingInsurance.value),
+    isSecondDriver: bookingAdditionalDriver.checked,
+    secondDriverFee: parseInt(bookingAdditionalDriverPrice.value),
+    endDay: END,
+    endTime: bookingTimeEnd.value,
+    endDate: null,
   };
   let state = initialState;
 
@@ -85,86 +221,113 @@ document.addEventListener('DOMContentLoaded', () => {
   const myCalendar = new TavoCalendar('#my-calendar', {
     range_select: true,
     locale: 'de',
+    date: moment(new Date).format("YYYY-MM-DD"),
+    date_start: START,
+    date_end: END,
+    range_select: true,
   });
 
-  function calculatePrice({ days, start, end } = state) {
-    let price = 0;
+  function setState(newState = {}) {
+    state = {
+      ...state,
+      ...newState,
+    };
 
-    if (start) {
-      const dayOfWeek = new Date(start).getDay();
-      const isWeekend = (dayOfWeek === 5) || (dayOfWeek === 6) || (dayOfWeek  === 0);
+    state.startDate = getMomentDate({ date: state.startDay, time: state.startTime });
+    state.endDate = getMomentDate({ date: state.endDay, time: state.endTime });
+    state.days = calculateDays(state);
+    state.price = calculatePrice(state);
 
-      if (isWeekend) {
-        price += parseInt(priceWeekends.innerHTML);
-      } else {
-        price += parseInt(priceDays.innerHTML);
-      }
+    render(state);
+  };
 
-      price += (days - 1) * parseInt(priceOther.innerHTML);
+  function render(state) {
+    bookingSummaryPrice.innerHTML = state.price;
+    bookingSummaryDays.innerHTML = state.days;
+
+    bookingBEPrice.value = state.price;
+    bookingBEDays.value = state.days;
+    bookingBEStart.value = state.startDate.format('DD-MMMM-YYYY HH:mm');
+    bookingBEEnd.value = state.endDate.format('DD-MMMM-YYYY HH:mm');
+  };
+
+  function getMomentDate({ date, time }) {
+    return moment(date + ' ' + time);
+  };
+
+  function calculateDays(state) {
+    let days = Math.ceil(moment.duration(state.endDate.diff(state.startDate)).asDays());
+
+    if (days < 1) {
+      days = 1;
     }
 
-    price += parseInt(bookingInsurance.value);
+    return days;
+  };
 
-    if (bookingAdditionalDriver.checked) {
-      price += parseInt(bookingAdditionalDriverPrice.innerHTML);
+  function calculatePrice(state) {
+    let price = 0;
+
+    const dayOfWeek = new Date(state.startDay).getDay();
+    const isWeekend = (dayOfWeek === 5) || (dayOfWeek === 6) || (dayOfWeek  === 0);
+
+    if (isWeekend) {
+      price += state.priceWeekends;
+    } else {
+      price += state.priceDays;
+    }
+
+    price += (state.days - 1) * state.priceNext;
+    price += state.insuranceFee;
+
+    if (state.isSecondDriver) {
+      price += state.secondDriverFee;
     }
 
     return price;
   };
 
-  function render({ days, price, start, end }) {
-    bookingSummaryPrice.innerHTML = price;
-    bookingSummaryDays.innerHTML = days;
-
-    bookingBEPrice.value = price;
-    bookingBEDays.value = days;
-    bookingBEStart.value = start;
-    bookingBEEnd.value = end;
-  };
-
-  function setState(object) {
-    state = {
-      ...state,
-      ...object,
-    };
-
-    render(state);
-  };
-
+  // Calendar Events
   nodeCalendar.addEventListener('calendar-select', () => {
-    const start = myCalendar.getSelected();
+    const selectedDay = myCalendar.getSelected();
 
     setState({
-      days: 1,
-      start,
-      price: calculatePrice({ days: 1, start }),
+      startDay: selectedDay,
+      endDay: selectedDay,
     });
   });
 
   nodeCalendar.addEventListener('calendar-range', () => {
     const { start, end } = myCalendar.getRange();
-    const days = moment(end).diff(moment(start), 'days') + 1;
 
     setState({
-      days,
-      start,
-      price: calculatePrice({ days, start, end }),
+      startDay: start,
+      endDay: end,
     });
   });
 
-  // second driver event handler
-  bookingAdditionalDriver.addEventListener('change', () => {
-    setState({
-      price: calculatePrice(),
-    });
-
-    bookingAdditionalDriverName.classList.toggle('hidden');
+  // Selector Events
+  bookingTimeStart.addEventListener('change', event => {
+    setState({ startTime: event.target.value });
   });
 
-  // insurance event handler
-  bookingInsurance.addEventListener('change', () => {
+  bookingTimeEnd.addEventListener('change', event => {
+    setState({ endTime: event.target.value });
+  });
+
+  bookingInsurance.addEventListener('change', event => {
     setState({
-      price: calculatePrice(),
+      insuranceFee: parseInt(event.target.value),
     });
   });
+
+  bookingAdditionalDriver.addEventListener('change', event => {
+    setState({
+      isSecondDriver: event.target.checked,
+    });
+
+    bookingAdditionalDriverName.classList.toggle('invisible');
+  });
+
+  setState();
 });

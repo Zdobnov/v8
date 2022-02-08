@@ -62,6 +62,10 @@ body {
   display: none !important;
 }
 
+.invisible {
+  visibility: hidden !important;
+}
+
 .stroke,
 .fill {
   transition: all .4s ease;
@@ -166,6 +170,16 @@ body {
 
 .input--success {
   border-color: #25891A;
+}
+
+.input:disabled {
+  opacity: .65;
+}
+
+.pre-select {
+  color: var(--white);
+  text-transform: capitalize;
+  margin-bottom: 4px;
 }
 
 .select {
