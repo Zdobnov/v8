@@ -1793,6 +1793,23 @@ body {
 .text ol,
 .text ul {
   margin-bottom: 20px;
+  color: var(--darkblue);
+}
+
+.text ol li {
+  list-style: decimal inside;
+}
+
+.text ul li {
+  list-style: disc inside;
+}
+
+.text li {
+  margin-top: 4px;
+}
+
+.text li:first-child {
+  margin-top: 0;
 }
 
 .text *:last-child {
