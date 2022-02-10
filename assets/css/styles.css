@@ -368,8 +368,23 @@ body {
   }
 }
 
-.menu__item--has-submenu:hover .submenu {
-  display: flex;
+.menu__item--has-submenu:hover .submenu {}
+
+@media screen and (max-width: 1399px) {
+  .menu__item--opened .submenu {
+    display: flex;
+  }
+
+  .menu__item--opened .menu__link {
+    background: var(--darkblue);
+    color: var(--white);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .menu__item--has-submenu:hover .submenu {
+    display: flex;
+  }
 }
 
 .menu__link {
