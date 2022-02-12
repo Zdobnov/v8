@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookingAdditionalDriverName = document.getElementById('booking-additional-driver-name');
   const bookingSummaryPrice = document.getElementById('booking-summary-price');
   const bookingSummaryDays= document.getElementById('booking-summary-days');
+  const bookingRange= document.getElementById('booking-range');
 
   // nodes to pass booking for BE
   const bookingBEPrice = document.getElementById('booking-be-price');
@@ -79,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // https://www.cssscript.com/event-calendar-date-picker/
   const START = moment(new Date).format("YYYY-MM-DD");
   const END = moment(new Date).add(1, 'days').format("YYYY-MM-DD");
+  const FREE_RANGE = parseInt(bookingRange.textContent);
 
   const initialState = {
     price: 0,
@@ -130,6 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     bookingBEDays.value = state.days;
     bookingBEStart.value = state.startDate.format('DD-MMMM-YYYY HH:mm');
     bookingBEEnd.value = state.endDate.format('DD-MMMM-YYYY HH:mm');
+
+    bookingRange.innerHTML = state.days * FREE_RANGE;
   };
 
   function getMomentDate({ date, time }) {
