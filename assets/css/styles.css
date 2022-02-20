@@ -618,7 +618,7 @@ body {
   flex-direction: column;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .vehicle__row {
     display: flex;
     flex-direction: row;
@@ -703,7 +703,7 @@ body {
   width: 100%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .vehicle__ctas .button {
     width: 340px;
   }
@@ -714,9 +714,10 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   .vehicle__image {
     order: -1;
     margin-bottom: 16px;
@@ -727,11 +728,18 @@ body {
   max-width: 100%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .vehicle__image img {
     position: absolute;
     left: 0;
     max-width: none;
+    transform: scale(.75) translateX(-20%);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .vehicle__image img {
+    transform: none;
   }
 }
 
